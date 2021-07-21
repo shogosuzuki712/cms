@@ -5,15 +5,9 @@ use Illuminate\Http\Request;
 
 
 /**
-* 本の一覧表示(books.blade.php)
+* 本ダッシュボード表示(books.blade.php)
 */
-Route::get('/', function () {
-    $books = Book::orderBy('created_at', 'asc')->get();
-    return view('books', [
-        'books' => $books
-    ]);
-    //return view('books',compact('books')); //も同じ意味
-});
+Route::get('/','BooksController@index');
 
 //登録処理
 Route::post('/books','BooksController@store');

@@ -10,6 +10,13 @@ use Auth;       //認証モデルを使用する
 
 class BooksController extends Controller
 {
+    //本ダッシュボード表示
+    public function index(){
+        $books = Book::orderBy('created_at', 'asc')->get();
+        return view('books', [ //return view('books',compact('books')); //も同じ意味
+        'books' => $books
+        ]);
+    }
     //更新
     public function update(Request $request){
         //バリデーション
