@@ -17,6 +17,12 @@ class BooksController extends Controller
         'books' => $books
         ]);
     }
+    //更新画面
+    public function edit(Book $books){
+        return view('booksedit', [
+        'book' => $books
+        ]);
+    }
     //更新
     public function update(Request $request){
         //バリデーション
