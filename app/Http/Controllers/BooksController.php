@@ -10,6 +10,11 @@ use Auth;       //認証モデルを使用する
 
 class BooksController extends Controller
 {
+    //コンストラクタ(このクラスが呼ばれたら最初に処理をする)
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //本ダッシュボード表示
     public function index(){
         $books = Book::orderBy('created_at', 'asc')->paginate(3);
